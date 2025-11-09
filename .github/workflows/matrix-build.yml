@@ -12,11 +12,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: matrix-5320067 Use Node.js ${{ matrix.node-version }}
-        id: matrix-5320067
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: matrix-5320067
+        run: echo "This step is for validation."
 
       - name: Generate build artifact
         run: echo "Build output for Node.js ${{ matrix.node-version }}" > output.txt
